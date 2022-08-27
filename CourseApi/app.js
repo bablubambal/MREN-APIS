@@ -46,6 +46,8 @@ app.post("/api/v1/course/new",async (req,res)=>{
 
 })
 
+
+// Getting the Courses
 app.get("/api/v1/courses",async(req,res)=>{
     const courses = await Course.find()
     res.status(200).json({
@@ -55,7 +57,7 @@ app.get("/api/v1/courses",async(req,res)=>{
     })
 })
 
-
+// Put the Courses
 app.put("/api/v1/courses/:id",async(req,res)=>{
     let course = await Course.findById(req.params.id)
 
@@ -78,7 +80,7 @@ res.status(200).json({
 
 })
 
-
+// Delete The Course
 app.delete("/api/v1/courses/:id", async(req,res)=>{
     let course = await Course.findById(req.params.id)
 if(!course){
